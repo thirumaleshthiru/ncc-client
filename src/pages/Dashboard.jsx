@@ -85,7 +85,7 @@ function Dashboard() {
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white/50 shadow-lg flex-shrink-0">
                 <img
-                  src={profile ? `http://localhost:3000/${profile}` : '/default-avatar.png'}
+                  src={profile ? `https://ncc-server-production.up.railway.app/${profile}` : '/default-avatar.png'}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
