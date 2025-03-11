@@ -42,7 +42,7 @@ function Register() {
         });
 
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/register', formPayload, {
+            const response = await axios.post('https://ncc-server-production.up.railway.app/api/auth/register', formPayload, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 

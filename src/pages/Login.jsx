@@ -32,7 +32,7 @@ function Login() {
     }
     
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/login', formData);
+      const response = await axios.post('https://ncc-server-production.up.railway.app/api/auth/login', formData);
       const { token, role, profile, user_id } = response.data;
       login(token, role, profile, user_id);
       

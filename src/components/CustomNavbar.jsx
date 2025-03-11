@@ -55,7 +55,7 @@ const CustomNavbar = () => {
                     {profile ? (
                       <img
                         alt="Profile"
-                        src={`http://localhost:3000/${profile}`}
+                        src={`https://ncc-server-production.up.railway.app/${profile}`}
                         className="w-full h-full object-cover"
                       />
                     ) : (

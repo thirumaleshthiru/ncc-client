@@ -11,7 +11,7 @@ const Stories = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/stories/");
+        const response = await axios.get("https://ncc-server-production.up.railway.app/api/stories/");
         setStories(response.data.stories);
         setLoading(false);
       } catch (error) {
@@ -95,7 +95,7 @@ const Stories = () => {
             >
               <div className="relative h-52 bg-gray-100">
                 <img
-                  src={`http://localhost:3000/uploads/${story.thumbnail}`}
+                  src={`https://ncc-server-production.up.railway.app/uploads/${story.thumbnail}`}
                   alt={story.story_name}
                   className="w-full h-full object-cover"
                   onError={(e) => {

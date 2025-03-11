@@ -17,7 +17,7 @@ const Messaging = () => {
     const fetchMessages = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/messages/user/${senderId}/receiver/${receiverId}`
+          `https://ncc-server-production.up.railway.app/api/messages/user/${senderId}/receiver/${receiverId}`
         );
         setMessages(response.data.messages);
         // Scroll to bottom after messages load
@@ -39,7 +39,7 @@ const Messaging = () => {
     if (!content.trim()) return;
 
     try {
-      await axios.post("http://localhost:3000/api/messages/send", {
+      await axios.post("https://ncc-server-production.up.railway.app/api/messages/send", {
         senderId: userId,
         receiverId,
         content,

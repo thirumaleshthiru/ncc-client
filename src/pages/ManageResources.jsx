@@ -24,7 +24,7 @@ function ManageResources() {
     const fetchMentorId = async () => {
       try {
         const userId = Cookies.get('id');
-        const response = await axios.get(`http://localhost:3000/api/mentorconnections/mentors/${userId}`);
+        const response = await axios.get(`https://ncc-server-production.up.railway.app/api/mentorconnections/mentors/${userId}`);
         setMentorId(response.data.mentor.mentor_id);
       } catch (error) {
         console.error('Error fetching mentor details:', error);
@@ -40,7 +40,7 @@ function ManageResources() {
     if (mentorId) {
       const fetchResources = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/api/resources/mentor/${mentorId}`);
+          const response = await axios.get(`https://ncc-server-production.up.railway.app/api/resources/mentor/${mentorId}`);
           setResources(response.data.resources);
         } catch (error) {
           console.error('Error fetching resources:', error);
@@ -56,7 +56,7 @@ function ManageResources() {
   const handleDelete = async (resourceId) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:3000/api/resources/delete/${resourceId}`);
+      await axios.delete(`https://ncc-server-production.up.railway.app/api/resources/delete/${resourceId}`);
       setResources(resources.filter((resource) => resource.resource_id !== resourceId));
       setDeleteConfirm(null);
       // Using toast-like notification

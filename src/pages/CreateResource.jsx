@@ -39,12 +39,12 @@ function CreateResource() {
         async function fetchData() {
             try {
                 // Fetch skills
-                const skillsResponse = await axios.get('http://localhost:3000/api/skills/all');
+                const skillsResponse = await axios.get('https://ncc-server-production.up.railway.app/api/skills/all');
                 setSkills(skillsResponse.data.skills);
                 
                 // Fetch mentor ID
                 const userId = Cookies.get("id");
-                const mentorResponse = await axios.get(`http://localhost:3000/api/mentorconnections/mentors/${userId}`);
+                const mentorResponse = await axios.get(`https://ncc-server-production.up.railway.app/api/mentorconnections/mentors/${userId}`);
                 setMentorId(mentorResponse.data.mentor.mentor_id);
             } catch (error) {
                 console.error("Error fetching initial data:", error);
@@ -91,7 +91,7 @@ function CreateResource() {
         };
 
         try {
-            await axios.post('http://localhost:3000/api/resources/add', data);
+            await axios.post('https://ncc-server-production.up.railway.app/api/resources/add', data);
             setIsLoading(false);
             
             // Success feedback

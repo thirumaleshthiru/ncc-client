@@ -20,7 +20,7 @@ const AddStoryComponent = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/skills/all");
+        const response = await axios.get("https://ncc-server-production.up.railway.app/api/skills/all");
         setSkills(response.data.skills);
       } catch (error) {
         console.error("Error fetching skills:", error);
@@ -48,7 +48,7 @@ const AddStoryComponent = () => {
     formData.append("thumbnail", thumbnail || "placeholder-image.webp");
 
     try {
-      const response = await axios.post("http://localhost:3000/api/stories/", formData, {
+      const response = await axios.post("https://ncc-server-production.up.railway.app/api/stories/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setSuccess("Story added successfully!");

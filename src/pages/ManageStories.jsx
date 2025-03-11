@@ -10,7 +10,7 @@ function ManageStories() {
 
     const fetchStories = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/stories/user/${Cookies.get("id")}`);
+            const response = await axios.get(`https://ncc-server-production.up.railway.app/api/stories/user/${Cookies.get("id")}`);
             setStories(response.data.stories);
         } catch (e) {
             console.log(e);
@@ -19,7 +19,7 @@ function ManageStories() {
 
     const handleDelete = async(id) => {
         try{
-            const response = await axios.delete(`http://localhost:3000/api/stories/${id}`);
+            const response = await axios.delete(`https://ncc-server-production.up.railway.app/api/stories/${id}`);
             if (response.status == 200){
                 alert("Successfully deleted");
                 setStories((prevStories) => prevStories.filter((story) => story.story_id !== id))

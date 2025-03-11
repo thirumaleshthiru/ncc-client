@@ -19,7 +19,7 @@ function AddSkills() {
   const fetchSkills = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/skills/all');
+      const response = await fetch('https://ncc-server-production.up.railway.app/api/skills/all');
       const data = await response.json();
       setSkills(data.skills);
     } catch (error) {
@@ -31,7 +31,7 @@ function AddSkills() {
 
   const fetchUserSkills = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/userskills/fetch/${id}`);
+      const response = await fetch(`https://ncc-server-production.up.railway.app/api/userskills/fetch/${id}`);
       const data = await response.json();
       setUserSkills(data.skills);
     } catch (error) {
@@ -49,7 +49,7 @@ function AddSkills() {
     if (selectedSkill && !userSkills.some(skill => skill.skill_id === parseInt(selectedSkill))) {
       setIsSubmitting(true);
       try {
-        const response = await fetch('http://localhost:3000/api/userskills/assign', {
+        const response = await fetch('https://ncc-server-production.up.railway.app/api/userskills/assign', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ function AddSkills() {
 
   const handleRemoveSkill = async (skillId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/userskills/remove/${id}/${skillId}`, {
+      const response = await fetch(`https://ncc-server-production.up.railway.app/api/userskills/remove/${id}/${skillId}`, {
         method: 'DELETE',
       });
       const result = await response.json();

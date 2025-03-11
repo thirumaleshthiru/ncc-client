@@ -24,7 +24,7 @@ function EditProfile() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/users/${id}`);
+        const response = await axios.get(`https://ncc-server-production.up.railway.app/api/users/${id}`);
         const { name, bio, current_year, current_sem, is_past_student } = response.data;
         setFormData({
           name,
@@ -54,7 +54,7 @@ function EditProfile() {
     e.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:3000/api/users/${id}`, formData, {
+      const response = await axios.put(`https://ncc-server-production.up.railway.app/api/users/${id}`, formData, {
         headers: { 'Content-Type': 'application/json' },
       });
 

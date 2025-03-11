@@ -18,8 +18,8 @@ const Resources = () => {
   const fetchData = async () => {
     try {
       const [resourcesRes, skillsRes] = await Promise.all([
-        axios.get('http://localhost:3000/api/resources/'),
-        axios.get('http://localhost:3000/api/skills/all')
+        axios.get('https://ncc-server-production.up.railway.app/api/resources/'),
+        axios.get('https://ncc-server-production.up.railway.app/api/skills/all')
       ]);
       
       setResources(resourcesRes.data.resources || []);

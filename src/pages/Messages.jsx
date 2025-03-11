@@ -20,7 +20,7 @@ const Messages = () => {
   useEffect(() => {
     const fetchConnections = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/connections/${userId}`);
+        const response = await axios.get(`https://ncc-server-production.up.railway.app/api/connections/${userId}`);
         setConnections(response.data.connections);
       } catch (error) {
         console.error("Error fetching connections:", error);
@@ -63,7 +63,7 @@ const Messages = () => {
                     <div className="w-16 h-16 rounded-full bg-indigo-100 overflow-hidden border-2 border-indigo-200">
                       {connection.profile_pic ? (
                         <img
-                          src={`http://localhost:3000/uploads/${connection.profile_pic}`}
+                          src={`https://ncc-server-production.up.railway.app/uploads/${connection.profile_pic}`}
                           alt={`${connection.name}'s profile`}
                           className="w-full h-full object-cover"
                           onError={(e) => {

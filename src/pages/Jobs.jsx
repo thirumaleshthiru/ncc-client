@@ -43,7 +43,7 @@ const Jobs = () => {
   const fetchJobs = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:3000/api/jobs/user/${Cookies.get("id")}`);
+      const response = await fetch(`https://ncc-server-production.up.railway.app/api/jobs/user/${Cookies.get("id")}`);
       const data = await response.json();
       
       if (data?.jobs) {

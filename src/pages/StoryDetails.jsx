@@ -13,7 +13,7 @@ const StoryDetails = () => {
   useEffect(() => {
     const fetchStory = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/stories/${story_id}`);
+        const response = await axios.get(`https://ncc-server-production.up.railway.app/api/stories/${story_id}`);
         setStory(response.data.story);
         setLoading(false);
       } catch (error) {
@@ -109,7 +109,7 @@ const StoryDetails = () => {
             <div className="rounded-xl border border-gray-100 shadow-md overflow-hidden">
               
                 <img
-                  src={`http://localhost:3000/uploads/${story.thumbnail}`}
+                  src={`https://ncc-server-production.up.railway.app/uploads/${story.thumbnail}`}
                   alt={story.story_name}
                   className="w-full h-full object-cover"
                   onError={(e) => {

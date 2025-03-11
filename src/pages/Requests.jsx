@@ -21,7 +21,7 @@ function Requests() {
 
   const fetchRequests = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/connections/requests/${loggedInUserId}`);
+      const response = await fetch(`https://ncc-server-production.up.railway.app/api/connections/requests/${loggedInUserId}`);
       const data = await response.json();
       setRequests(data.pendingRequests || []);
     } catch (error) {
@@ -35,7 +35,7 @@ function Requests() {
     setProcessingIds(prev => new Set([...prev, connectionId]));
     
     try {
-      const response = await fetch("http://localhost:3000/api/connections/decide", {
+      const response = await fetch("https://ncc-server-production.up.railway.app/api/connections/decide", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -119,7 +119,7 @@ function Requests() {
                 <div className="relative h-32 bg-gradient-to-r from-orange-400 to-orange-600">
                   <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
                     <img
-                      src={`http://localhost:3000/${request.profile_pic}`}
+                      src={`https://ncc-server-production.up.railway.app/${request.profile_pic}`}
                       alt={request.name}
                       className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover"
                     />

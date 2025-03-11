@@ -17,7 +17,7 @@ function MyConnections() {
   }, [token]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/connections/${loggedInUserId}`)
+    fetch(`https://ncc-server-production.up.railway.app/api/connections/${loggedInUserId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch connections");
@@ -37,7 +37,7 @@ function MyConnections() {
 
   const handleReject = async (connectionId) => {
     try {
-      const response = await fetch("http://localhost:3000/api/connections/decide", {
+      const response = await fetch("https://ncc-server-production.up.railway.app/api/connections/decide", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ function MyConnections() {
               <div className="flex items-center gap-4 mb-5">
                 <div className={`w-16 h-16 rounded-md overflow-hidden ring-2 ring-offset-2 ring-offset-black ${getBgColor(index)}`}>
                   <img
-                    src={`http://localhost:3000/${connection.profile_pic}`}
+                    src={`https://ncc-server-production.up.railway.app/${connection.profile_pic}`}
                     alt={connection.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {

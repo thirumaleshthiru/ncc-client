@@ -24,7 +24,7 @@ function ExploreConnections() {
   },[token])
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/users")
+    fetch("https://ncc-server-production.up.railway.app/api/users")
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching users:", error));
@@ -38,7 +38,7 @@ function ExploreConnections() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/connections/send", {
+      const response = await fetch("https://ncc-server-production.up.railway.app/api/connections/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ function ExploreConnections() {
         <div className="relative h-32 bg-gradient-to-r from-indigo-400 to-purple-500">
           <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
             <img
-              src={`http://localhost:3000/${user.profile_pic}`}
+              src={`https://ncc-server-production.up.railway.app/${user.profile_pic}`}
               alt={user.name}
               className="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg"
             />
